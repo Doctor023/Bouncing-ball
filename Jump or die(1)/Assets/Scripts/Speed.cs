@@ -5,9 +5,9 @@ using UnityEngine;
 public class Speed : MonoBehaviour
 {
     [SerializeField] private int _speedPoint;
-    [SerializeField] private int _speed;
+    [SerializeField] private float _speed;
 
-    public int _Speed { get { return _speed; } }
+    public float _Speed { get { return _speed; } }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -15,9 +15,9 @@ public class Speed : MonoBehaviour
         if (collision.collider.TryGetComponent(out GoodBlock goodBlock))
         {
             _speedPoint++;
-            if (_speedPoint == 3)
+            if (_speedPoint == 4 && _speed != 32)
             {
-                _speed = _speed + 2;               
+                _speed = _speed + 0.5f;               
                 _speedPoint = 0;
                 
             }

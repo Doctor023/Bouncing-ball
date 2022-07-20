@@ -8,7 +8,6 @@ public class Destroyer : MonoBehaviour
     {
         if (collision.collider.TryGetComponent(out Destroy destroy))
         {
-            Debug.Log("объект столкгнулся");
             Destroy(gameObject);
        }
     }

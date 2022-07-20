@@ -22,10 +22,10 @@ public class Spawner : MonoBehaviour
             switch (_randomSpawn)
             {
                 case 0:
-                    Instantiate(Block, new Vector3(13.075f, Random.Range(-5.31f, -1.61f), 0), Quaternion.identity);
+                    Instantiate(Block, new Vector3(13.075f, Random.Range(-5.5f, -2.231f), 0), Quaternion.identity);
                     break;
                 case 1:
-                    Instantiate(Block, new Vector3(13.075f, Random.Range(1.618f, 5.91f), 0), Quaternion.identity);
+                    Instantiate(Block, new Vector3(13.075f, Random.Range(2.274f, 5.62f), 0), Quaternion.identity);
                     break;
             }
 

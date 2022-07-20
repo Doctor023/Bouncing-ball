@@ -15,18 +15,33 @@ public class Jump : MonoBehaviour
         if (collision.collider.TryGetComponent(out WallDown walldown))
         {
             _playerPosition = -1;
+            transform.position = new Vector3(-7.05f, -4.3155f, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Корабль вошел в пол");
         }
         else if (collision.collider.TryGetComponent(out WallUp wallup))
         {
             _playerPosition = 1;
+            transform.position = new Vector3(-7.05f, 4.358f, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log("Корабль вошел в потолок");
+            
         }
         
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent(out WallDown walldown) || collision.collider.TryGetComponent(out WallUp wallup))
+        if (collision.collider.TryGetComponent(out WallDown walldown))
         {
-            _playerPosition = 0;          
+            _playerPosition = 0;
+            transform.rotation = Quaternion.Euler(0, 0, 15);
+            Debug.Log("Корабль вышел из пола");
+        }
+        if (collision.collider.TryGetComponent(out WallUp wallup)) 
+        {
+            _playerPosition = 0;
+            transform.rotation = Quaternion.Euler(0, 0, -15);
+            Debug.Log("Корабль вышел из потолка");
         }
     }
     void Update()
@@ -38,10 +53,10 @@ public class Jump : MonoBehaviour
                 {
                     case -1:
                         _rigidbody2D.AddForce(Vector2.up * _jumpForce);
-                        break;
+                    break;
                     case 1:
                         _rigidbody2D.AddForce(Vector2.down * _jumpForce);
-                        break;
+                    break;
                 }
             }
         }
