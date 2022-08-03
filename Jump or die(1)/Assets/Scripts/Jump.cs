@@ -17,14 +17,12 @@ public class Jump : MonoBehaviour
             _playerPosition = -1;
             transform.position = new Vector3(-7.05f, -4.3155f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Корабль вошел в пол");
         }
         else if (collision.collider.TryGetComponent(out WallUp wallup))
         {
             _playerPosition = 1;
             transform.position = new Vector3(-7.05f, 4.358f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Корабль вошел в потолок");
             
         }
         
@@ -35,13 +33,11 @@ public class Jump : MonoBehaviour
         {
             _playerPosition = 0;
             transform.rotation = Quaternion.Euler(0, 0, 15);
-            Debug.Log("Корабль вышел из пола");
         }
         if (collision.collider.TryGetComponent(out WallUp wallup)) 
         {
             _playerPosition = 0;
             transform.rotation = Quaternion.Euler(0, 0, -15);
-            Debug.Log("Корабль вышел из потолка");
         }
     }
     void Update()

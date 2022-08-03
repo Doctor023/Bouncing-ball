@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class RestartFromMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool _timeToRestart = false;
+    private void Start()
     {
-        
+        Debug.Log("Старт запустился");
+        Invoke("TimeToRestart", 2.0f);
     }
-
-    // Update is called once per frame
+    void TimeToRestart()
+    {
+        _timeToRestart = true;
+        Debug.Log("Можно рестартнуть");
+    }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && _timeToRestart)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
