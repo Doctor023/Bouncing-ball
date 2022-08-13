@@ -16,7 +16,7 @@ public class StartGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKey(KeyCode.Space))
         {
             Time.timeScale = 1;
             Destroy(_startText);

@@ -9,13 +9,15 @@ public class RestartFromMenu : MonoBehaviour
     private bool _timeToRestart = false;
     private void Start()
     {
-        Debug.Log("Старт запустился");
-        Invoke("TimeToRestart", 2.0f);
+        StartCoroutine(TimeToRestart());
+        
     }
-    void TimeToRestart()
+    private IEnumerator TimeToRestart()
     {
+        yield return new WaitForSecondsRealtime(0.2f);
         _timeToRestart = true;
-        Debug.Log("Можно рестартнуть");
+        Debug.Log("Можно рестартнуть"); ;
+        
     }
     void Update()
     {
