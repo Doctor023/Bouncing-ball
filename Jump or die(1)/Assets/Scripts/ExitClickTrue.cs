@@ -8,6 +8,6 @@ public class ExitClickTrue : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Клик засчитан");
+        
     }
 }

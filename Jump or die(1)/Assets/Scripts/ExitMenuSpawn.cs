@@ -5,23 +5,33 @@ using UnityEngine;
 
 public class ExitMenuSpawn : MonoBehaviour
 {
-    [SerializeField] private bool _exitMenuPositionOnScreen = false;
+    private bool _exitMenuPositionOnScreen = false;
+
+    public bool _ExitMenuPositionOnScreen
+    {
+        get { return _exitMenuPositionOnScreen; }
+        set { _exitMenuPositionOnScreen = value; }
+    }
+
+    public void SetPositionOnScreen (bool _newPosition)
+    {
+        _exitMenuPositionOnScreen = _newPosition;
+    }
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             switch (_exitMenuPositionOnScreen)
             {
                 case false:
-                    Debug.Log("Меню вызвалось");
                     transform.position = new Vector2(0, 0);
                     _exitMenuPositionOnScreen = true;
+                    Time.timeScale = 0;
                     break;
                 case true:
-                    Debug.Log("Меню закрылось");
                     transform.position = new Vector2(0, -50);
                     _exitMenuPositionOnScreen = false;
+                    Time.timeScale = 1;
                     break;
             }
         }
