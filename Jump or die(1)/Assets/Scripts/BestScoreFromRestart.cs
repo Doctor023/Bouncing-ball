@@ -10,8 +10,10 @@ public class BestScoreFromRestart : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        var _bestScore = _player.GetComponent<Score>()._BestScore;
-        _bestScoreGameOverMenu.text = "Best: " + _bestScore.ToString();
+        var bestScore = _player.GetComponent<Score>().BestScore;
+        PlayerPrefs.SetInt("Best Score", bestScore);
+        _bestScoreGameOverMenu.text = "Best: " + bestScore.ToString();
+        Debug.Log("BestScoreFromRestart: _bestScore == " + bestScore);
     }
 
     // Update is called once per frame

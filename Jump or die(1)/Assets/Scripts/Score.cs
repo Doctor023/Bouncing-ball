@@ -10,13 +10,18 @@ public class Score : MonoBehaviour
     [SerializeField] private int _bestScore;
     [SerializeField] private TextMeshProUGUI _textBestScore;
 
-    public int _BestScore
+    public int BestScore
     {
         get { return _bestScore; }
+        set { _bestScore = value; }
     }
 
-    
-        private void OnCollisionEnter2D(Collision2D collision)
+    public void Start()
+    {
+        _bestScore = PlayerPrefs.GetInt("Best Score");
+        _textBestScore.text = "Best Score: " + _bestScore.ToString();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent(out GoodBlock goodBlock))
         {
@@ -29,4 +34,6 @@ public class Score : MonoBehaviour
             }
         }
     }
-}
+
+    }
+

@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverMenu: {fileID: 5390595930038929068, guid: 79dae0a4933191640bf1a5cf3a6e7d8a, type: 3}
+  _player: {fileID: 0}
 --- !u!1 &726048509
 GameObject:
   m_ObjectHideFlags: 0
