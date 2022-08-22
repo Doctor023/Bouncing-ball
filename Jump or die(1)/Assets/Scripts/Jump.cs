@@ -15,13 +15,13 @@ public class Jump : MonoBehaviour
         if (collision.collider.TryGetComponent(out WallDown walldown))
         {
             _playerPosition = -1;
-            transform.position = new Vector3(-7.05f, -4.3155f, 0);
+            transform.position = new Vector3(-4.88f, -4.3155f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (collision.collider.TryGetComponent(out WallUp wallup))
         {
             _playerPosition = 1;
-            transform.position = new Vector3(-7.05f, 4.358f, 0);
+            transform.position = new Vector3(-4.88f, 4.358f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 0);
             
         }
