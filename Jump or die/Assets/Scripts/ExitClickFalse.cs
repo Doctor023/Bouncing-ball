@@ -24,6 +24,7 @@ public class ExitClickFalse : MonoBehaviour, IPointerClickHandler
         if (_exitMenuPositionOnScreen)
         {
             _exitMenu.transform.position = new Vector2(0, -50);
+            Time.timeScale = 1;
             ExitMenuSpawn.SetPositionOnScreen(false);
         }
     }
